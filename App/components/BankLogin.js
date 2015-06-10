@@ -10,6 +10,8 @@ var {
   View,
 } = React;
 
+
+
 var BankLogin = React.createClass({
   render: function() {
     return (
@@ -18,12 +20,12 @@ var BankLogin = React.createClass({
            {' Bank of America '}
         </Text>
         <TextInput 
-          style={styles.textField} placeholder='username' autoCorrect='No'
-          onChangeText={(text) => this.setState({input: text})}
+          style={styles.textField} placeholder='username' autoCorrect={false}
+          onChangeText={(text) => {this.setState({username: text})}}
         />
         <TextInput
           style={styles.passwordTextField} placeholder='password' secureTextEntry='YES'
-          onChangeText={(text) => this.setState({input: text})}
+          onChangeText={(text) => this.setState({password: text})}
         />
         <Button 
           style={styles.submit} onPress={this._handlePress}>
@@ -31,7 +33,13 @@ var BankLogin = React.createClass({
         </Button>
       </View>
     );
-  }
+  },
+  _handlePress(){
+  	console.log('test');
+  	console.log(this.state.username);
+  	console.log(this.state.password);
+  },
+
 });
 
 var styles = StyleSheet.create({

@@ -16,6 +16,7 @@ var {
 var BankLogin = require('./App/components/BankLogin.js');
 
 var MoneyLover = React.createClass({
+  //check if there is a user, if not load the login
   render: function() {
     return (
       <View style={styles.container}>
@@ -29,7 +30,7 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#FF4A4A',
+    backgroundColor: '#FFF',
   },
 });
 
