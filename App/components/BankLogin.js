@@ -13,6 +13,10 @@ var {
 
 
 var BankLogin = React.createClass({
+  getInitialState: function() {
+    return {loggedIn: false}
+  },
+  
   render: function() {
     return (
       <View style={styles.container}>
@@ -38,6 +42,7 @@ var BankLogin = React.createClass({
   	console.log('test');
   	console.log(this.state.username);
   	console.log(this.state.password);
+  	this.setState({loggedIn: true})
   },
 
 });
