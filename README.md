@@ -8,6 +8,7 @@ I suck at keeping track of my money... and I don't like my bank. So I decided to
 * Continue hacking
 * Make it cool
 * Make it pretty
+
 ------------------------
 ### Hate your bank too?
 Well I'd love help, if you want to help. Or if you simply want to play with React-Native
