@@ -1,5 +1,7 @@
 # MoneyLover
 
+Warning: Build is not passing
+
 I suck at keeping track of my money... and I don't like my bank. So I decided to make a native app that will help me more easily keep track of my spending and amount of money left in my account. 
 
 #ToDo:
