@@ -11,6 +11,7 @@ I'm current using Plaid to login to my bank account. I liked the look of their w
 #Todo:
 * Update README as more commits go by
 * Make basic login for BofA to start
+* Login error handling
 * BofA questions
 * More banks (sorry but my bank is BofA)
 * Push notifications if I overdraft

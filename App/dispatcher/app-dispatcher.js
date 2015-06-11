@@ -1,4 +1,4 @@
-var Dispatcher = require('./Dispatcher');
+var Dispatcher = require('./dispatcher');
 var assign = require('object-assign');
 
 var AppDispatcher = assign({}, Dispatcher.prototype, {

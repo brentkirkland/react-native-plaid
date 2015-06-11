@@ -1,5 +1,6 @@
 'use strict';
-
+var LoginActions = require('../actions/login-actions');
+var LoginStore = require('../stores/login_store');
 var Button = require('react-native-button');
 var React = require('react-native');
 var {
@@ -10,13 +11,10 @@ var {
   View,
 } = React;
 
-
-
 var BankLogin = React.createClass({
   getInitialState: function() {
     return {loggedIn: false}
   },
-  
   render: function() {
     return (
       <View style={styles.container}>
@@ -39,10 +37,7 @@ var BankLogin = React.createClass({
     );
   },
   _handlePress(){
-  	console.log('test');
-  	console.log(this.state.username);
-  	console.log(this.state.password);
-  	this.setState({loggedIn: true})
+  	LoginActions.submitLogin();
   },
 
 });
