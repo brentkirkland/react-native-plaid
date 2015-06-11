@@ -40,9 +40,11 @@ var MoneyLover = React.createClass({
       </View>
     );
   },
-  _handlePress: function (){
+  _handlePress: function (data){
+    console.log(data)
+    console.log(this.state.store)
     LoginActions.submitLogin();
-    this.forceUpdate();
+    //this.forceUpdate();
   }
 });
 

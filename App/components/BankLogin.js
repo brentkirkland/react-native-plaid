@@ -10,7 +10,7 @@ var {
 } = React;
 
 var BankLogin = React.createClass({
-  getInitialState: function() {console.log(this.props);return null},
+  getInitialState: function() {return {username: '',password: ''}},
 
   render: function() {
     return (
@@ -27,7 +27,7 @@ var BankLogin = React.createClass({
           onChangeText={(text) => this.setState({password: text})}
         />
         <Button 
-          style={styles.submit} onPress={this.props.submit}>
+          style={styles.submit} onPress={this.props.submit({username: this.state.username, password: this.state.password})}>
           {' Submit '}
         </Button>
       </View>

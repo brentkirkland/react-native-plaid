@@ -5,7 +5,7 @@ var EventEmitter = require('events').EventEmitter;
 
 var CHANGE_EVENT = "change";
 
-var _loginData = {loggedIn: false};
+var _loginData = {loggedIn: false, error: null};
 
 function _submitUserandPassword(payload){
 	console.log('store updated')
