@@ -1,9 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
 'use strict';
-
 
 var React = require('react-native');
 var LoginStore = require('./App/stores/login_store')
@@ -18,6 +13,7 @@ var {
 } = React;
 
 var BankLogin = require('./App/components/BankLogin.js');
+var BankQuestions = require('./App/components/BankQuestions.js');
 
 function updateState(){
   return LoginStore.getAll()
@@ -36,10 +32,11 @@ var MoneyLover = React.createClass({
     LoginSTore.removeChangeListener(this._onChange);
   },
   pageSelect: function(){
+    console.log('page selected state:', this.state.store.loggedIn)
     if (this.state.store.loggedIn === false) {
-      return <BankLogin/>
+      return <BankLogin error={this.state.store.error}/>
     } else {
-      console.log('switch to questions')
+      return <BankQuestions/>
     }
   },
   render: function() {

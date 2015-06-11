@@ -16,13 +16,23 @@ var BankLogin = React.createClass({
   getInitialState: function() {
   	return null
   },
-
+  showError: function() {
+  	if (this.props.error != null) {
+  		return (
+  		<Text style={styles.welcome}>
+           {this.props.error}
+        </Text>
+        )
+  	}
+  },
   render: function() {
+  	var error = this.showError();
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
            {' Bank of America '}
         </Text>
+        {error}
         <TextInput 
           style={styles.textField} placeholder='username' autoCorrect={false}
           onChange={(text) => this.setUsername(text)}/>

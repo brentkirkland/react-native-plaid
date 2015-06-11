@@ -9,6 +9,7 @@ var {
   TextInput,
   Text,
   View,
+  TouchableHighlight,
 } = React;
 
 var BankLogin = React.createClass({
@@ -19,21 +20,25 @@ var BankLogin = React.createClass({
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-           {' What is '}
+           {' Bank of America '}
+        </Text>
+        <Text style={styles.welcome}>
+           {'What is the first concert that you attended?'}
         </Text>
         <TextInput 
           style={styles.textField} placeholder='answer' autoCorrect={false}
           onChangeText={(text) => {this.setState({username: text})}}
         />
-        <Button 
-          style={styles.submit} onPress={this._handlePress}>
-          {' Submit '}
-        </Button>
+        <TouchableHighlight
+        onPress={this._handlePress}
+        underlayColor='#FF4A4A'>
+          <Text style={styles.submitText}>Submit</Text>
+        </TouchableHighlight>
       </View>
     );
   },
   _handlePress(){
-  	LoginActions.submitLogin();
+  	
   },
 
 });
@@ -70,20 +75,22 @@ var styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginLeft: 20,
+    marginRight: 20,
     marginBottom: 5,
     backgroundColor: '#FFF',
     color: "#FF4A4A",
   },
-  submit: {
+  submitText: {
     padding: 8.5,
-    fontSize: 17,
     marginTop: 5,
     marginLeft: 20,
     marginRight: 20,
     marginBottom: 5,
+    textAlign: 'left',
+    fontSize: 17,
+    color: '#FFF',
     borderWidth: 1,
     borderColor: 'white',
-    color: "#FFF",
   },
   instructions: {
     textAlign: 'center',

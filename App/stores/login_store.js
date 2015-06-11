@@ -15,7 +15,7 @@ function _submitUserandPassword(data){
      _loginData.loggedIn = true
     } else {
       _loginData.loggedIn = false
-      _loginData.error = 'Your credentials suck'
+      _loginData.error = ' Your credentials suck '
     }
   console.log(_loginData)
   LoginStore.emitChange();
