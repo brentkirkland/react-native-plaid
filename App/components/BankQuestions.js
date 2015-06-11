@@ -19,7 +19,7 @@ var BankLogin = React.createClass({
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-           {' What is? '}
+           {' What is '}
         </Text>
         <TextInput 
           style={styles.textField} placeholder='answer' autoCorrect={false}

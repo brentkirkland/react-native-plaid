@@ -3,9 +3,10 @@ var AppConstants = require('../constants/app-constants.js');
 
 var LoginActions = {
 
-	submitLogin: function(){
+	submitLogin: function(data){
 		var payload = {
-     	 actionType: 'LOGIN_SUBMIT'
+     	 actionType: 'LOGIN_SUBMIT',
+     	 data: data
    		};
     	AppDispatcher.handleViewAction(payload);
 	},

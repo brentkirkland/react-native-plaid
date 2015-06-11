@@ -7,7 +7,7 @@
 
 var React = require('react-native');
 var LoginStore = require('./App/stores/login_store')
-var LoginActions = require('./App/actions/login-actions')
+
 
 var {
   AppRegistry,
@@ -19,15 +19,25 @@ var {
 
 var BankLogin = require('./App/components/BankLogin.js');
 
+function updateState(){
+  return LoginStore.getAll()
+}
+
 var MoneyLover = React.createClass({
   getInitialState: function () {
     return {
-      store: LoginStore.getAll()
+      store: updateState()
     };
+  },
+  componentDidMount: function() {
+    LoginStore.addChangeListener(this._onChange);
+  },
+  componentDidUnount: function() {
+    LoginSTore.removeChangeListener(this._onChange);
   },
   pageSelect: function(){
     if (this.state.store.loggedIn === false) {
-      return <BankLogin submit={this._handlePress}/>
+      return <BankLogin/>
     } else {
       console.log('switch to questions')
     }
@@ -40,11 +50,8 @@ var MoneyLover = React.createClass({
       </View>
     );
   },
-  _handlePress: function (data){
-    console.log(data)
-    console.log(this.state.store)
-    LoginActions.submitLogin();
-    //this.forceUpdate();
+  _onChange: function() {
+    this.setState(updateState())
   }
 });
 

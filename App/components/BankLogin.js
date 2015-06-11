@@ -1,16 +1,21 @@
 'use strict';
-var Button = require('react-native-button');
+
 var React = require('react-native');
+var LoginActions = require('../actions/login-actions');
+
 var {
   AppRegistry,
   StyleSheet,
   TextInput,
   Text,
   View,
+  TouchableHighlight,
 } = React;
 
 var BankLogin = React.createClass({
-  getInitialState: function() {return {username: '',password: ''}},
+  getInitialState: function() {
+  	return null
+  },
 
   render: function() {
     return (
@@ -20,20 +25,27 @@ var BankLogin = React.createClass({
         </Text>
         <TextInput 
           style={styles.textField} placeholder='username' autoCorrect={false}
-          onChangeText={(text) => {this.setState({username: text})}}
-        />
+          onChange={(text) => this.setUsername(text)}/>
         <TextInput
           style={styles.passwordTextField} placeholder='password' secureTextEntry='YES'
-          onChangeText={(text) => this.setState({password: text})}
-        />
-        <Button 
-          style={styles.submit} onPress={this.props.submit({username: this.state.username, password: this.state.password})}>
-          {' Submit '}
-        </Button>
+          onChange={(text) => this.setPassword(text)}/>
+        <TouchableHighlight
+        onPress={this.submitUsernameAndPassword}
+        underlayColor='#FF4A4A'>
+          <Text style={styles.submitText}>Submit</Text>
+      	</TouchableHighlight>
       </View>
     );
   },
-
+  setUsername: function(data){
+  	this.setState({username: data.nativeEvent.text})
+  },
+  setPassword: function(data){
+  	this.setState({password: data.nativeEvent.text})
+  },
+  submitUsernameAndPassword: function() {
+ 	LoginActions.submitLogin({username: this.state.username, password: this.state.password});
+  },
 });
 
 var styles = StyleSheet.create({
@@ -46,7 +58,7 @@ var styles = StyleSheet.create({
     height: 40, 
     marginLeft: 20, 
     marginRight: 20, 
-    paddingLeft: 5, 
+    paddingLeft: 9, 
     backgroundColor: '#FFF', 
     color: '#FF4A4A'
   },
@@ -55,7 +67,7 @@ var styles = StyleSheet.create({
     marginTop: 5,
     marginLeft: 20, 
     marginRight: 20, 
-    paddingLeft: 5, 
+    paddingLeft: 9, 
     backgroundColor: '#FFF', 
     color: '#FF4A4A'
   },
@@ -72,16 +84,17 @@ var styles = StyleSheet.create({
     backgroundColor: '#FFF',
     color: "#FF4A4A",
   },
-  submit: {
-    padding: 8.5,
-    fontSize: 17,
+  submitText: {
+  	padding: 8.5,
     marginTop: 5,
     marginLeft: 20,
     marginRight: 20,
     marginBottom: 5,
+  	textAlign: 'left',
+    fontSize: 17,
+    color: '#FFF',
     borderWidth: 1,
     borderColor: 'white',
-    color: "#FFF",
   },
   instructions: {
     textAlign: 'center',

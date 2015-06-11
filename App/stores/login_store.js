@@ -7,10 +7,18 @@ var CHANGE_EVENT = "change";
 
 var _loginData = {loggedIn: false, error: null};
 
-function _submitUserandPassword(payload){
-	console.log('store updated')
-	_loginData.loggedIn = true
-	console.log(_loginData.loggedIn)
+function _submitUserandPassword(data){
+	console.log('payload')
+  console.log(data)
+  // if (payload != null){
+    if (data.username.length > 4 && data.password.length > 4){
+     _loginData.loggedIn = true
+    } else {
+      _loginData.loggedIn = false
+      _loginData.error = 'Your credentials suck'
+    }
+  console.log(_loginData)
+  LoginStore.emitChange();
 }
 
 var LoginStore = merge(EventEmitter.prototype, {
@@ -31,7 +39,7 @@ var LoginStore = merge(EventEmitter.prototype, {
   dispatcherIndex:AppDispatcher.register(function(payload){
   	switch(payload.action.actionType){
   		case AppConstants.LOGIN_SUBMIT:
-  			_submitUserandPassword(payload);
+  			_submitUserandPassword(payload.action.data);
   		default:
   			return true;
   	}
