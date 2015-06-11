@@ -5,12 +5,12 @@ var EventEmitter = require('events').EventEmitter;
 
 var CHANGE_EVENT = "change";
 
-var _loginData = [];
+var _loginData = {loggedIn: false};
 
 function _submitUserandPassword(payload){
-	_loginData.push({loggedIn: true})
-	console.log('loginData')
-	console.log(_loginData)
+	console.log('store updated')
+	_loginData.loggedIn = true
+	console.log(_loginData.loggedIn)
 }
 
 var LoginStore = merge(EventEmitter.prototype, {

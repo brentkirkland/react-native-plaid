@@ -4,7 +4,11 @@
  */
 'use strict';
 
+
 var React = require('react-native');
+var LoginStore = require('./App/stores/login_store')
+var LoginActions = require('./App/actions/login-actions')
+
 var {
   AppRegistry,
   StyleSheet,
@@ -16,13 +20,29 @@ var {
 var BankLogin = require('./App/components/BankLogin.js');
 
 var MoneyLover = React.createClass({
-  //check if there is a user, if not load the login
+  getInitialState: function () {
+    return {
+      store: LoginStore.getAll()
+    };
+  },
+  pageSelect: function(){
+    if (this.state.store.loggedIn === false) {
+      return <BankLogin submit={this._handlePress}/>
+    } else {
+      console.log('switch to questions')
+    }
+  },
   render: function() {
+    var page = this.pageSelect();
     return (
       <View style={styles.container}>
-        <BankLogin/>
+        {page}
       </View>
     );
+  },
+  _handlePress: function (){
+    LoginActions.submitLogin();
+    this.forceUpdate();
   }
 });
 

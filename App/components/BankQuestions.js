@@ -1,4 +1,6 @@
 'use strict';
+var LoginActions = require('../actions/login-actions');
+var LoginStore = require('../stores/login_store');
 var Button = require('react-native-button');
 var React = require('react-native');
 var {
@@ -10,28 +12,28 @@ var {
 } = React;
 
 var BankLogin = React.createClass({
-  getInitialState: function() {console.log(this.props);return null},
-
+  getInitialState: function() {
+    return {loggedIn: false}
+  },
   render: function() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-           {' Bank of America '}
+           {' What is? '}
         </Text>
         <TextInput 
-          style={styles.textField} placeholder='username' autoCorrect={false}
+          style={styles.textField} placeholder='answer' autoCorrect={false}
           onChangeText={(text) => {this.setState({username: text})}}
         />
-        <TextInput
-          style={styles.passwordTextField} placeholder='password' secureTextEntry='YES'
-          onChangeText={(text) => this.setState({password: text})}
-        />
         <Button 
-          style={styles.submit} onPress={this.props.submit}>
+          style={styles.submit} onPress={this._handlePress}>
           {' Submit '}
         </Button>
       </View>
     );
+  },
+  _handlePress(){
+  	LoginActions.submitLogin();
   },
 
 });
