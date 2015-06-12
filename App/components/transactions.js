@@ -42,6 +42,7 @@ var Transactions = React.createClass({
     return (
       <View style={styles.row}>
         <Text style={styles.name}>{transaction.name}</Text>
+          <Text style={styles.price}>{transaction.amount}</Text>
       </View>
     );
   },
@@ -60,10 +61,15 @@ var styles = StyleSheet.create({
   },
   row: {
     height: 50,
-    borderColor: 'black',
-    borderWidth: 0.5,
+    borderBottomColor: 'grey',
+    borderBottomWidth: 0.5,
   },
   name: {
+    fontWeight: 'bold',
+    paddingLeft: 10,
+    paddingTop: 5,
+  },
+  price: {
     paddingLeft: 10,
     paddingTop: 5,
   },

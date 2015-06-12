@@ -8,9 +8,21 @@ var {
   View,
 } = React;
 
+function updateState(){
+  return LoginStore.getAll()
+}
+
 var Transactions = React.createClass({
   getInitialState: function () {
-    return {null}
+    return {
+      store: updateState()
+    };
+  },
+  componentDidMount: function() {
+    LoginStore.addChangeListener(this._onChange);
+  },
+  componentDidUnount: function() {
+    LoginSTore.removeChangeListener(this._onChange);
   },
   render: function() {
     return (
