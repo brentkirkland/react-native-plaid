@@ -14,7 +14,7 @@ var {
 
 var BankLogin = React.createClass({
   getInitialState: function() {
-  	return null
+  	return ({username: '', password: ''})
   },
   showError: function() {
   	if (this.props.error != null) {
@@ -33,11 +33,11 @@ var BankLogin = React.createClass({
            {' Bank of America '}
         </Text>
         {error}
-        <TextInput 
-          style={styles.textField} placeholder='username' autoCorrect={false}
+        <TextInput
+          style={styles.textField} placeholder='press' autoCorrect={false}
           onChange={(text) => this.setUsername(text)}/>
         <TextInput
-          style={styles.passwordTextField} placeholder='password' secureTextEntry='YES'
+          style={styles.passwordTextField} placeholder='submit' secureTextEntry='YES'
           onChange={(text) => this.setPassword(text)}/>
         <TouchableHighlight
         onPress={this.submitUsernameAndPassword}
@@ -65,20 +65,20 @@ var styles = StyleSheet.create({
     backgroundColor: '#FF4A4A',
   },
   textField: {
-    height: 40, 
-    marginLeft: 20, 
-    marginRight: 20, 
-    paddingLeft: 9, 
-    backgroundColor: '#FFF', 
+    height: 40,
+    marginLeft: 20,
+    marginRight: 20,
+    paddingLeft: 9,
+    backgroundColor: '#FFF',
     color: '#FF4A4A'
   },
   passwordTextField: {
-    height: 40, 
+    height: 40,
     marginTop: 5,
-    marginLeft: 20, 
-    marginRight: 20, 
-    paddingLeft: 9, 
-    backgroundColor: '#FFF', 
+    marginLeft: 20,
+    marginRight: 20,
+    paddingLeft: 9,
+    backgroundColor: '#FFF',
     color: '#FF4A4A'
   },
   seperator: {

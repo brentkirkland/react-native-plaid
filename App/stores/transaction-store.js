@@ -5,16 +5,16 @@ var EventEmitter = require('events').EventEmitter;
 
 var CHANGE_EVENT = "change";
 
-var _loginData = {loggedIn: false, error: null};
+var _transactions = {}
 
-function _submitUserandPassword(data){
-  _loginData.loggedIn = true;
-  LoginStore.emitChange();
+function _storeTransactions(request){
+	_transactions = request;
+  TransactionsStore.emitChange();
 }
 
-var LoginStore = merge(EventEmitter.prototype, {
+var TransactionsStore = merge(EventEmitter.prototype, {
   getAll: function() {
-    return _loginData;
+    return _transactions;
   },
   emitChange:function(){
     this.emit(CHANGE_EVENT);
@@ -30,7 +30,7 @@ var LoginStore = merge(EventEmitter.prototype, {
   dispatcherIndex:AppDispatcher.register(function(payload){
   	switch(payload.action.actionType){
   		case AppConstants.LOGIN_SUBMIT:
-  			_submitUserandPassword(payload.action.data);
+				_storeTransactions(payload.action.request)
   		default:
   			return true;
   	}
@@ -39,4 +39,4 @@ var LoginStore = merge(EventEmitter.prototype, {
   })
 })
 
-module.exports = LoginStore;
+module.exports = TransactionsStore;

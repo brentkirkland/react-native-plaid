@@ -25,8 +25,8 @@ var BankLogin = React.createClass({
         <Text style={styles.welcome}>
            {'What is the first concert that you attended?'}
         </Text>
-        <TextInput 
-          style={styles.textField} placeholder='answer' autoCorrect={false}
+        <TextInput
+          style={styles.textField} placeholder='answer' autoCorrect={false} autoFocus={true}
           onChangeText={(text) => {this.setState({username: text})}}
         />
         <TouchableHighlight
@@ -38,7 +38,7 @@ var BankLogin = React.createClass({
     );
   },
   _handlePress(){
-  	
+
   },
 
 });
@@ -50,20 +50,20 @@ var styles = StyleSheet.create({
     backgroundColor: '#FF4A4A',
   },
   textField: {
-    height: 40, 
-    marginLeft: 20, 
-    marginRight: 20, 
-    paddingLeft: 5, 
-    backgroundColor: '#FFF', 
+    height: 40,
+    marginLeft: 20,
+    marginRight: 20,
+    paddingLeft: 5,
+    backgroundColor: '#FFF',
     color: '#FF4A4A'
   },
   passwordTextField: {
-    height: 40, 
+    height: 40,
     marginTop: 5,
-    marginLeft: 20, 
-    marginRight: 20, 
-    paddingLeft: 5, 
-    backgroundColor: '#FFF', 
+    marginLeft: 20,
+    marginRight: 20,
+    paddingLeft: 5,
+    backgroundColor: '#FFF',
     color: '#FF4A4A'
   },
   seperator: {

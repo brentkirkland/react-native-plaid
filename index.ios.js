@@ -13,7 +13,7 @@ var {
 } = React;
 
 var BankLogin = require('./App/components/BankLogin.js');
-var BankQuestions = require('./App/components/BankQuestions.js');
+var Transactions = require('./App/components/transactions.js');
 
 function updateState(){
   return LoginStore.getAll()
@@ -29,14 +29,13 @@ var MoneyLover = React.createClass({
     LoginStore.addChangeListener(this._onChange);
   },
   componentDidUnount: function() {
-    LoginSTore.removeChangeListener(this._onChange);
+    LoginStore.removeChangeListener(this._onChange);
   },
   pageSelect: function(){
-    console.log('page selected state:', this.state.store.loggedIn)
     if (this.state.store.loggedIn === false) {
       return <BankLogin error={this.state.store.error}/>
     } else {
-      return <BankQuestions/>
+      return <Transactions/>
     }
   },
   render: function() {
