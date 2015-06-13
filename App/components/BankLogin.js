@@ -30,7 +30,7 @@ var BankLogin = React.createClass({
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-           {' Bank of America '}
+           {' Plaid '}
         </Text>
         {error}
         <TextInput
@@ -41,7 +41,7 @@ var BankLogin = React.createClass({
           onChange={(text) => this.setPassword(text)}/>
         <TouchableHighlight
         onPress={this.submitUsernameAndPassword}
-        underlayColor='#FF4A4A'>
+        underlayColor='#51cc82'>
           <Text style={styles.submitText}>Submit</Text>
       	</TouchableHighlight>
       </View>
@@ -62,7 +62,7 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#FF4A4A',
+    backgroundColor: '#51cc82',
   },
   textField: {
     height: 40,
@@ -70,7 +70,7 @@ var styles = StyleSheet.create({
     marginRight: 20,
     paddingLeft: 9,
     backgroundColor: '#FFF',
-    color: '#FF4A4A'
+    color: '#28b761'
   },
   passwordTextField: {
     height: 40,
@@ -79,7 +79,7 @@ var styles = StyleSheet.create({
     marginRight: 20,
     paddingLeft: 9,
     backgroundColor: '#FFF',
-    color: '#FF4A4A'
+    color: '#51cc82'
   },
   seperator: {
     height: 1,
@@ -92,7 +92,7 @@ var styles = StyleSheet.create({
     marginLeft: 20,
     marginBottom: 5,
     backgroundColor: '#FFF',
-    color: "#FF4A4A",
+    color: "#51cc82",
   },
   submitText: {
   	padding: 8.5,

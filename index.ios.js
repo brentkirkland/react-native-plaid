@@ -10,6 +10,7 @@ var {
   TextInput,
   Text,
   View,
+  NavigatorIOS
 } = React;
 
 var BankLogin = require('./App/components/BankLogin.js');
@@ -35,7 +36,20 @@ var MoneyLover = React.createClass({
     if (this.state.store.loggedIn === false) {
       return <BankLogin error={this.state.store.error}/>
     } else {
-      return <Transactions/>
+      return (
+        <NavigatorIOS
+        style={styles.container}
+        barTintColor='#28b761'
+        tintColor='#fff'
+        translucent={false}
+        titleTextColor='#fff'
+        initialRoute={{
+          component: Transactions,
+          title: 'Plaid Transactions',
+          passProps: null,
+        }}
+        />
+      );
     }
   },
   render: function() {
@@ -54,8 +68,6 @@ var MoneyLover = React.createClass({
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#FFF',
   },
 });
 
