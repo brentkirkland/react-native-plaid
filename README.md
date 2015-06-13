@@ -11,7 +11,7 @@ React Native enables you to build world-class application experiences on native 
 Plaid allows you to easily fetch banking data by allowing users to login with their bank accounts. 
 
 ##Future Ideas:
-* Make the NavBar seperator be white
+* Make the NavBar seperator white (so annoying)
 * Build out the mfa questions and work more with the Plaid sandbox.
 * Stylize
 
