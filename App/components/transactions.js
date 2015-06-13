@@ -8,6 +8,7 @@ var _ = require('lodash');
 var {
   AppRegistry,
   StyleSheet,
+  PixelRatio,
   View,
   Text,
   ListView,
@@ -83,7 +84,7 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     height: 60,
     borderBottomColor: '#28b761',
-    borderBottomWidth: 0.5,
+    borderBottomWidth: 1/PixelRatio.get(),
   },
   name: {
     flex: 1,
