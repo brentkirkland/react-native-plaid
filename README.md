@@ -1,4 +1,4 @@
-# React-Native-Plaid
+# react-native-plaid
 
 This is a React Native app built with a Flux architecture and the Plaid API. This is essentially a boilerplate app that demonstrates the Flux architecture while making http request. Not only it gives a starting point in building an app with Plaid.
 
